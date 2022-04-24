@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C095D4F281561DD0042FCF1 /* TSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C095D4D281561DD0042FCF1 /* TSP.cpp */; };
+		5C095D51281585D80042FCF1 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 5C095D50281585D80042FCF1 /* makefile */; };
 		5C7D7058281461E800821B92 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D7057281461E800821B92 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		5C095D4D281561DD0042FCF1 /* TSP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TSP.cpp; sourceTree = "<group>"; };
 		5C095D4E281561DD0042FCF1 /* TSP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TSP.hpp; sourceTree = "<group>"; };
+		5C095D50281585D80042FCF1 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		5C7D7054281461E800821B92 /* TSP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TSP; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7D7057281461E800821B92 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +62,7 @@
 		5C7D7056281461E800821B92 /* TSP */ = {
 			isa = PBXGroup;
 			children = (
+				5C095D50281585D80042FCF1 /* makefile */,
 				5C7D7057281461E800821B92 /* main.cpp */,
 				5C095D4D281561DD0042FCF1 /* TSP.cpp */,
 				5C095D4E281561DD0042FCF1 /* TSP.hpp */,
@@ -126,6 +129,7 @@
 			files = (
 				5C7D7058281461E800821B92 /* main.cpp in Sources */,
 				5C095D4F281561DD0042FCF1 /* TSP.cpp in Sources */,
+				5C095D51281585D80042FCF1 /* makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

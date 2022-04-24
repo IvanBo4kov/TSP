@@ -15,7 +15,7 @@ float dist(Point p1, Point p2) {
     return sqrt((p1.x - p2.x)*(p1.x - p2.x) + (p1.y - p2.y)*(p1.y - p2.y));
 }
 
-void readInput (vector<vector<float>>& matrix, const int& N, const vector<Point> points) {
+void readInput (vector<vector<float> >& matrix, const int& N, const vector<Point> points) {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (i == j) {
@@ -31,8 +31,7 @@ int main() {
     string path = "/Users/ivanbockov/123123123";
            auto it = fs::directory_iterator(path);
            vector<fs::path> array_path;
-           copy_if(fs::begin(it), fs::end(it), std::back_inserter(array_path),
-               [](const auto& entry) {
+           copy_if(fs::begin(it), fs::end(it), std::back_inserter(array_path), [](const auto& entry) {
                    return fs::is_regular_file(entry);
            });
     for (auto& p : array_path) {
@@ -42,7 +41,7 @@ int main() {
         int N;
         fin >> N;
         vector<Point> points(N);
-        vector<vector<float>> matrix(N, vector<float>(N));
+        vector<vector<float> > matrix(N, vector<float>(N));
         for (int i = 0; i < N; i++) {
             Point p;
             fin >> p.x >> p.y;
