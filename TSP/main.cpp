@@ -4,7 +4,7 @@
 #include "TSP.hpp"
 
 using namespace std;
-namespace fs = filesystem;
+//namespace fs = filesystem;
 
 struct Point {
     float x;
@@ -33,10 +33,10 @@ void readInput (vector<vector<float> >& matrix, const int& N, const vector<Point
 
 int main() {
     string path = "/Users/ivanbockov/big_data";
-           auto it = fs::directory_iterator(path);
-           vector<fs::path> array_path;
-           copy_if(fs::begin(it), fs::end(it), std::back_inserter(array_path), [](const auto& entry) {
-                   return fs::is_regular_file(entry);
+           auto it = filesystem::directory_iterator(path);
+           vector<filesystem::path> array_path;
+           copy_if(filesystem::begin(it), filesystem::end(it), std::back_inserter(array_path), [](const auto& entry) {
+                   return filesystem::is_regular_file(entry);
            });
     for (auto& p : array_path) {
         ifstream fin;

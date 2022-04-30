@@ -17,13 +17,15 @@ vector<v_point> TSP::get_res_path() {
     return ribes;
 }
 float TSP::recursion (vector<vector<float> >& matrix, float sum) {
+//    print_matrix(matrix);
     if (matrix.size() > 3) {
-        vector<s_point> s = first_line_S(matrix);
+        vector<SPoint> s = first_line_S(matrix);
         vector<float> di = d_i(matrix, s);
         vector<float> dj = d_j(matrix, s);
         v_point arg_max = argmax(di, dj, s);
         vector<vector<float>> resize_matrix = matrix_modify(matrix, arg_max.s_point);
         matrix.clear();
+ //       print_matrix(resize_matrix);
         float new_sum = matrix_reduction(resize_matrix);
         auto par = NGFC(sum, new_sum, arg_max);
         if (par.first) {
@@ -141,7 +143,7 @@ vector<v_point> TSP::rows_reduction(vector<vector<float> >& matrix) {
     return row_value;
 }
 
-vector<float> TSP::d_i (const vector<vector<float> >& matrix, const vector<s_point>& s) {
+vector<float> TSP::d_i (const vector<vector<float> >& matrix, const vector<SPoint>& s) {
     int v_size = matrix.size();
     vector<float> result;
     for (auto s_p : s) {
@@ -155,7 +157,7 @@ vector<float> TSP::d_i (const vector<vector<float> >& matrix, const vector<s_poi
     }
     return result;
 }
-vector<float> TSP::d_j (const vector<vector<float> >& matrix, const vector<s_point>& s) {
+vector<float> TSP::d_j (const vector<vector<float> >& matrix, const vector<SPoint>& s) {
     int v_size = matrix.size();
     vector<float> result;
     for (auto s_p : s) {
@@ -170,13 +172,13 @@ vector<float> TSP::d_j (const vector<vector<float> >& matrix, const vector<s_poi
     return result;
 }
 
-vector<s_point> TSP::first_line_S (const vector<vector<float> >& matrix) {
+vector<SPoint> TSP::first_line_S (const vector<vector<float> >& matrix) {
     int v_size = matrix.size();
-    vector<s_point> first_line;
+    vector<SPoint> first_line;
     for (int i = 1; i < v_size; i++) {
         for (int j = 1; j < v_size; j++) {
             if (matrix[i][j] == 0) {
-                s_point s_p;
+                SPoint s_p;
                 s_p.real_coord = make_pair(i, j);
                 s_p.absolute_coord = make_pair(matrix[i][0], matrix[0][j]);
                 first_line.push_back(s_p);
@@ -186,7 +188,7 @@ vector<s_point> TSP::first_line_S (const vector<vector<float> >& matrix) {
     return first_line;
 }
 
-v_point TSP::argmax (const vector<float>& di, const vector<float>& dj, const vector<s_point>& s) {
+v_point TSP::argmax (const vector<float>& di, const vector<float>& dj, const vector<SPoint>& s) {
     v_point p;
     float max = -1;
     for (int i = 0; i < di.size(); i++) {
@@ -201,7 +203,7 @@ v_point TSP::argmax (const vector<float>& di, const vector<float>& dj, const vec
     return p;
 }
 
-vector<vector<float>> TSP::matrix_modify(const vector<vector<float> >& matrix, s_point kl){
+vector<vector<float>> TSP::matrix_modify(const vector<vector<float> >& matrix, SPoint kl){
     vector<vector<float>> resize_matrix;
     int size = matrix.size();
     float a_first;
@@ -209,19 +211,23 @@ vector<vector<float>> TSP::matrix_modify(const vector<vector<float> >& matrix, s
     float first;
     float second;
     second = kl.real_coord.second;
+
     for(int i = 1; i < size; i++){
         if(matrix[i][second] == MAXFLOAT){
             a_second = matrix[i][0];
             break;
         }
     }
+    
     first = kl.real_coord.first;
+
     for(int j = 1; j < size; j++){
         if(matrix[first][j] == MAXFLOAT){
             a_first = matrix[0][j];
             break;
         }
     }
+    
     for(int i = 0; i < size; i++){
         if(matrix[i][0] != kl.absolute_coord.first){
             vector<float> resize_row;
@@ -233,6 +239,7 @@ vector<vector<float>> TSP::matrix_modify(const vector<vector<float> >& matrix, s
             resize_matrix.push_back(resize_row);
         }
     }
+    
     size--;
     for(int i = 1; i < size; i++){
         if(resize_matrix[i][0] == a_second){
@@ -240,17 +247,31 @@ vector<vector<float>> TSP::matrix_modify(const vector<vector<float> >& matrix, s
             break;
         }
     }
+    
     for(int j = 1; j < size; j++){
         if(resize_matrix[0][j] == a_first){
             second = j;
             break;
         }
     }
+
+    
     resize_matrix[first][second] = MAXFLOAT;
     return resize_matrix;
     
 }
+/*
+pair <int,int> TSP::find_inf(const vector<vector<float>>& matrix, int col){
+    pair <int,int> inf;
+    auto v_size = matrix.size();
+    for (auto i = 0; i < v_size; i++) {
+        for (auto j = 0; j < v_size; j++) {
 
+        }
+    }
+    return inf;
+}
+*/
 void TSP::print_matrix(const vector<vector<float> >& matrix){
     cout << endl;
     auto v_size = matrix.size();
@@ -266,4 +287,3 @@ void TSP::print_matrix(const vector<vector<float> >& matrix){
     }
     
 }
-
