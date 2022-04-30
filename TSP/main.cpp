@@ -19,16 +19,20 @@ void readInput (vector<vector<float> >& matrix, const int& N, const vector<Point
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (i == j) {
-                matrix[i][j] = 0;
+                matrix[i][j] = MAXFLOAT;
             } else {
                 matrix[i][j] = dist(points[i], points[j]);
             }
         }
     }
+    for (int i = 0; i < N; i++) {
+        matrix[i][0] = i;
+        matrix[0][i] = i;
+    }
 }
 
 int main() {
-    string path = "/Users/ivanbockov/123123123";
+    string path = "/Users/ivanbockov/big_data";
            auto it = fs::directory_iterator(path);
            vector<fs::path> array_path;
            copy_if(fs::begin(it), fs::end(it), std::back_inserter(array_path), [](const auto& entry) {
@@ -41,21 +45,16 @@ int main() {
         int N;
         fin >> N;
         vector<Point> points(N);
-        vector<vector<float> > matrix(N, vector<float>(N));
         for (int i = 0; i < N; i++) {
             Point p;
             fin >> p.x >> p.y;
             points[i] = p;
         }
+        N++;
+        vector<vector<float> > matrix(N, vector<float>(N));
         readInput(matrix, N, points);
         TSP tsp(matrix);
-        cout << tsp.getFinalRes() << endl;
-        /*
-        for (int i = 0; i <= N; i++) {
-            cout << tsp.getFinalPath()[i] << " ";
-        }
-        cout << endl;
-         */
+        cout << tsp.get_res() << endl;
     }
     return 0;
 }
