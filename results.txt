@@ -145,4 +145,4 @@
 /Users/ivanbockov/TSPtests/tsp_33810_1
 83439528
 /Users/ivanbockov/TSPtests/tsp_14051_1
-839764.2
+617263
