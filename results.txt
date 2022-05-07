@@ -131,13 +131,13 @@
 /Users/ivanbockov/TSPtests/tsp_5934_1
 861608
 /Users/ivanbockov/TSPtests/tsp_11849_1
-1156219.8
+1314730
 /Users/ivanbockov/TSPtests/tsp_4461_1
 258899
 /Users/ivanbockov/TSPtests/tsp_2392_1
 571177
 /Users/ivanbockov/TSPtests/tsp_18512_1
-1003524
+850901
 /Users/ivanbockov/TSPtests/tsp_3038_1
 176457
 /Users/ivanbockov/TSPtests/tsp_7397_1
