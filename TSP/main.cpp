@@ -32,7 +32,7 @@ void readInput (vector<vector<float> >& matrix, const int& N, const vector<Point
 }
 
 int main() {
-    string path = "/Users/ivanbockov/big_data";
+    string path = "/Users/ivanbockov/TSPtests";
            auto it = filesystem::directory_iterator(path);
            vector<filesystem::path> array_path;
            copy_if(filesystem::begin(it), filesystem::end(it), std::back_inserter(array_path), [](const auto& entry) {

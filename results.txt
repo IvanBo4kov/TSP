@@ -83,7 +83,7 @@
 /Users/ivanbockov/TSPtests/tsp_226_1
 113827
 /Users/ivanbockov/TSPtests/tsp_5_1
-25173.9
+4
 /Users/ivanbockov/TSPtests/tsp_107_1
 53517
 /Users/ivanbockov/TSPtests/tsp_417_1
@@ -123,7 +123,7 @@
 /Users/ivanbockov/TSPtests/tsp_1060_1
 315499
 /Users/ivanbockov/TSPtests/tsp_2319_1
-298623.7
+254476
 /Users/ivanbockov/TSPtests/tsp_3795_1
 37663.5
 /Users/ivanbockov/TSPtests/tsp_5915_1
